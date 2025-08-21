@@ -10,7 +10,7 @@ const AdminLogin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/admin/login', { email, password });
+      const response = await axios.post('https://document-delivery-backend-3.onrender.com/api/admin/login', { email, password });
       const token = response.data.token;
 
       localStorage.setItem('token', token);

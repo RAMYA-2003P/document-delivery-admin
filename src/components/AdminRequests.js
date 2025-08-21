@@ -2669,7 +2669,7 @@ const AdminRequests = ({ onLogout }) => {
   useEffect(() => {
     const fetchRequests = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/article-requests/admin/request');
+        const response = await axios.get('https://document-delivery-backend-3.onrender.com/api/article-requests/admin/request');
         const data = response.data;
         setRequests(data);
 
@@ -2709,7 +2709,7 @@ const AdminRequests = ({ onLogout }) => {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      await axios.put(`http://localhost:5000/api/article-requests/admin/request/${id}/status`, {
+      await axios.put(`https://document-delivery-backend-3.onrender.com/api/article-requests/admin/request/${id}/status`, {
         status: newStatus,
       });
       setRequests((prev) => prev.map((req) => (req._id === id ? { ...req, status: newStatus } : req)));
@@ -2727,7 +2727,7 @@ const AdminRequests = ({ onLogout }) => {
 
     try {
       await axios.post(
-        `http://localhost:5000/api/article-requests/admin/request/${id}/upload`,
+        `https://document-delivery-backend-3.onrender.com/api/article-requests/admin/request/${id}/upload`,
         formData,
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );
